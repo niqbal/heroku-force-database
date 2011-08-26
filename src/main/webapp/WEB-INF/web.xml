@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+           version="2.5">
+
+    <!-- Enables Security  -->
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.force.sdk.oauth.AuthFilter</filter-class>
+             <init-param>
+                <param-name>url</param-name>
+                <param-value>${DATABASE_COM_URL}</param-value>
+            </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+<!--filter>
+  <filter-name>auth</filter-name>
+  <filter-class>com.force.BasicAuth</filter-class>
+    <init-param>
+        <param-name>realm</param-name>
+        <param-value>realm5</param-value>
+    </init-param>
+    <init-param>
+        <param-name>user</param-name>
+        <param-value>user2</param-value>
+    </init-param>
+    <init-param>
+        <param-name>password</param-name>
+        <param-value>1234</param-value>
+    </init-param>
+</filter>
+<filter-mapping>
+    <filter-name>auth</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping-->
+
+
+    <servlet>
+        <display-name>SaveProject</display-name>
+        <servlet-name>SaveProject</servlet-name>
+        <servlet-class>com.force.servlets.SaveProject</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SaveProject</servlet-name>
+        <url-pattern>/SaveProject</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>SaveTask</display-name>
+        <servlet-name>SaveTask</servlet-name>
+        <servlet-class>com.force.servlets.SaveTask</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SaveTask</servlet-name>
+        <url-pattern>/SaveTask</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <display-name>ProjectList</display-name>
+        <servlet-name>ProjectList</servlet-name>
+        <servlet-class>com.force.servlets.ProjectList</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProjectList</servlet-name>
+        <url-pattern>/ProjectList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <display-name>NewProject</display-name>
+        <servlet-name>NewProject</servlet-name>
+        <servlet-class>com.force.servlets.NewProject</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NewProject</servlet-name>
+        <url-pattern>/NewProject</url-pattern>
+    </servlet-mapping>
+
+</web-app>
